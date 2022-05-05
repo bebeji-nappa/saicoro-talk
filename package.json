@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "packageManager": "yarn@3.2.0",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack serve",
+    "start": "http-server ./dist"
+  },
+  "dependencies": {
+    "cannon": "^0.6.2",
+    "cannon-es": "^0.19.0",
+    "http-server": "^14.1.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "stats.js": "^0.17.0",
+    "three": "^0.140.0",
+    "three-css3drenderer": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime-corejs3": "^7.17.9",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "core-js": "3",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss": "^8.4.13",
+    "postcss-loader": "^6.2.1",
+    "react-hook-form": "^7.30.0",
+    "tailwindcss": "^3.0.24",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
