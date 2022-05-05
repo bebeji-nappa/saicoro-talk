@@ -149,7 +149,6 @@ export const Dice = () => {
     camera.lookAt(cube.position);
     const id = requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    setRequestId(id);
     return id;
   }
 
