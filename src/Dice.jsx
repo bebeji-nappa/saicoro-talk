@@ -92,7 +92,6 @@ export const Dice = () => {
     div = document.getElementById("three");
     div.appendChild(renderer.domElement);
     renderer.render(scene, camera);
-    setRenderer(renderer);
   }
 
   function setPhy() {
