@@ -16,6 +16,7 @@ export const Dice = () => {
       yellow: "当たり!!",
     }
   );
+  const [open, setOpen] = useState(false);
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     console.log(data)
@@ -172,55 +173,61 @@ export const Dice = () => {
   return (
     <>
       <div id="three">
-        <div id="side" className="p-5">
-          <h2 className="title">Saicoro Talk 3D</h2>
-          <form onChange={handleSubmit(onSubmit)}>
-            <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
-              <label className="flex flex-row items-center mb-1">
-                <span className="icon pink mr-1"></span>
-                Pink
-              </label>
-              <input type="text" defaultValue={items["pink"]} {...register("pink")} />
-            </div>
-            <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
-              <label className="flex flex-row items-center mb-1">
-                <span className="icon sky mr-1"></span>
-                Sky
-              </label>
-              <input type="text" defaultValue={items["sky"]} {...register("sky")} />
-            </div>
-            <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
-              <label className="flex flex-row items-center mb-1">
-                <span className="icon orange mr-1"></span>
-                Orange
-              </label>
-              <input type="text" defaultValue={items["orange"]} {...register("orange")} />
-            </div>
-            <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
-              <label className="flex flex-row items-center mb-1">
-                <span className="icon purple mr-1"></span>
-                Purple
-              </label>
-              <input type="text" defaultValue={items["purple"]} {...register("purple")} />
-            </div>
-            <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
-              <label className="flex flex-row items-center mb-1">
-                <span className="icon green mr-1"></span>
-                Green
-              </label>
-              <input type="text" defaultValue={items["green"]} {...register("green")} />
-            </div>
-            <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
-              <label className="flex flex-row items-center mb-1">
-                <span className="icon yellow mr-1"></span>
-                Yellow
-              </label>
-              <input type="text" defaultValue={items["yellow"]} {...register("yellow")} />
-            </div>
-          </form>
-          <a href="/">
-            <button type="button" className="w-full p-2 bg-red-600 text-white rounded-md ">転がす</button>
-          </a>
+        <input id="menuopen" type="checkbox" onChange={() => setOpen(!open)} />
+        <div id="side" className="flex flex-row-reverse">
+          <label className="sidebar-open-label m-0" htmlFor="menuopen">
+            <div className="sidebar-open flex flex-row items-center bg-slate-500">{open ? "←" : "→"}</div>  
+          </label>
+          <div id="side-content" className="p-5">
+            <h2 className="title">Saicoro Talk 3D</h2>
+            <form onChange={handleSubmit(onSubmit)}>
+              <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
+                <label className="flex flex-row items-center mb-1">
+                  <span className="icon pink mr-1"></span>
+                  Pink
+                </label>
+                <input type="text" defaultValue={items["pink"]} {...register("pink")} />
+              </div>
+              <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
+                <label className="flex flex-row items-center mb-1">
+                  <span className="icon sky mr-1"></span>
+                  Sky
+                </label>
+                <input type="text" defaultValue={items["sky"]} {...register("sky")} />
+              </div>
+              <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
+                <label className="flex flex-row items-center mb-1">
+                  <span className="icon orange mr-1"></span>
+                  Orange
+                </label>
+                <input type="text" defaultValue={items["orange"]} {...register("orange")} />
+              </div>
+              <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
+                <label className="flex flex-row items-center mb-1">
+                  <span className="icon purple mr-1"></span>
+                  Purple
+                </label>
+                <input type="text" defaultValue={items["purple"]} {...register("purple")} />
+              </div>
+              <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
+                <label className="flex flex-row items-center mb-1">
+                  <span className="icon green mr-1"></span>
+                  Green
+                </label>
+                <input type="text" defaultValue={items["green"]} {...register("green")} />
+              </div>
+              <div className="flex flex-col bg-slate-500 p-2 rounded-md my-2">
+                <label className="flex flex-row items-center mb-1">
+                  <span className="icon yellow mr-1"></span>
+                  Yellow
+                </label>
+                <input type="text" defaultValue={items["yellow"]} {...register("yellow")} />
+              </div>
+            </form>
+            <a href="/">
+              <button type="button" className="w-full p-2 bg-red-600 text-white rounded-md ">転がす</button>
+            </a>
+          </div>
         </div>
       </div>
     </>

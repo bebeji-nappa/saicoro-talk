@@ -7,6 +7,33 @@ body {
   padding: 0px;
 }
 
+#menuopen {
+  display: none;
+}
+
+#menuopen:checked ~ #side {
+  left: 0;
+}
+
+/* #menuopen:checked ~ .sidebar-open-label .sidebar-open {
+  left: 360px;
+} */
+
+.sidebar-open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 10;
+  text-align: center;
+  border-radius: 20px;
+}
+
 .title {
   font-weight: bold;
   font-size: 30px;
@@ -14,43 +41,52 @@ body {
 }
 
 #side {
-  position: fixed;
+  position: absolute;
+  width: 400px;
+  left: -350px;
+  transition: left 0.1s linear;
+  -webkit-transition: left 0.1s linear;
+  z-index: 2;
+  overflow-y: scroll;
+}
+
+#side-content {
   height: 100vh;
   width: 350px;
   background-color: rgba(0,0,0,0.5);
-  z-index: 100;
+  z-index: 2;
 }
 
-#side .icon {
+#side-content .icon {
   display: block;
   width: 10px;
   height: 10px;
 }
 
-#side label {
+#side-content label {
   color: #fff;
 }
 
-#side .pink {
+#side-content .pink {
   background-color: #fca9f6;
 }
 
-#side .sky {
+#side-content .sky {
   background-color: #a9f0fc;
 }
 
-#side .orange {
+#side-content .orange {
   background-color: #fcd8a9;
 }
 
-#side .purple {
+#side-content .purple {
   background-color: #d096ff;
 }
 
-#side .green {
+#side-content .green {
   background-color: #befca9;
 }
 
-#side .yellow {
+#side-content .yellow {
   background-color: #fcf3a9;
 }
