@@ -43,6 +43,7 @@ body {
 #side {
   position: absolute;
   width: 400px;
+  height: 100vh;
   left: -350px;
   transition: left 0.1s linear;
   -webkit-transition: left 0.1s linear;
@@ -89,4 +90,13 @@ body {
 
 #side-content .yellow {
   background-color: #fcf3a9;
+}
+
+.info {
+  color: #fff;
+  font-size: 12px;
+}
+
+.info ul {
+  list-style: disc;
 }

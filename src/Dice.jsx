@@ -37,6 +37,7 @@ export const Dice = () => {
     setPhy();
     setView();
     const id = animate();
+    // cancelAnimationFrame(id);
     setTimeout(() => {
       cancelAnimationFrame(id);
     }, 10000);
@@ -75,7 +76,7 @@ export const Dice = () => {
       new THREE.MeshBasicMaterial({map: setTexture(items["green"], "#befca9"), color: 0xbefca9, side: THREE.DoubleSide}),
       new THREE.MeshBasicMaterial({map: setTexture(items["yellow"], "#fcf3a9"), color: 0xfcf3a9, side: THREE.DoubleSide})
     ];
-    cube = new THREE.Mesh(geometryCube, materialColors);
+    cube = new THREE.Mesh(geometryCube, arrayShuffle(materialColors));
     cube.position.y = 1;
     scene.add(cube);
     let viewPlane = new THREE.Mesh(new THREE.CircleGeometry(10, 128), new THREE.MeshPhongMaterial({color: 0xeb3f3f}));
@@ -153,6 +154,17 @@ export const Dice = () => {
     return id;
   }
 
+  function arrayShuffle(array) {
+    for(let i = (array.length - 1); 0 < i; i--){
+      let r = Math.floor(Math.random() * (i + 1));
+  
+      let tmp = array[i];
+      array[i] = array[r];
+      array[r] = tmp;
+    }
+    return array;
+  }
+
   useEffect(() => {
     const stateItems = localStorage.getItem("items");
     if(stateItems) {
@@ -227,6 +239,14 @@ export const Dice = () => {
             <a href="/">
               <button type="button" className="w-full p-2 bg-red-600 text-white rounded-md ">転がす</button>
             </a>
+            <div className="info p-5">
+              <ul>
+                <li>このサイトは、サイコロトークを3Dで体感できるサイトです。</li>
+                <li>上記の入力画面で、トークテーマを設定できます。</li>
+                <li>「転がす」ボタンを押すと、サイコロを転がせます。</li>
+                <li><b>6面は転がすたびに、ランダムで並び替えられます。</b></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
